@@ -1,0 +1,31 @@
+name: Salesforce ELF Ingestion
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  ingest-elf:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          pip install pandas requests
+
+      - name: Execute ELF Ingestion
+        env:
+          NEW_RELIC_API_KEY: ${{ secrets.NEW_RELIC_API_KEY }}
+        run: |
+          python elf-loader/ingest.py

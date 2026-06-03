@@ -1,0 +1,6 @@
+CLASS_NAME,EXCEPTION_TYPE,SEVERITY,STATUS
+AccountService,NullPointerException,HIGH,OPEN
+ContactService,DMLException,MEDIUM,OPEN
+OpportunityService,SOQLException,HIGH,OPEN
+LeadService,ListIndexOutOfBoundsException,LOW,OPEN
+CaseService,QueryException,HIGH,OPEN
