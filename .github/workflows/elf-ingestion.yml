@@ -29,3 +29,16 @@ jobs:
           NEW_RELIC_API_KEY: ${{ secrets.NEW_RELIC_API_KEY }}
         run: |
           python elf-loader/ingest.py
+      - name: Create ISM Dashboard
+        env:
+           NEW_RELIC_USER_API_KEY: ${{ secrets.NEW_RELIC_USER_API_KEY }}
+           NEW_RELIC_ACCOUNT_ID: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
+        run: |
+           python dashboards/create_ism_dashboard.py
+
+      - name: Create DM Dashboard
+        env:
+           NEW_RELIC_USER_API_KEY: ${{ secrets.NEW_RELIC_USER_API_KEY }}
+           NEW_RELIC_ACCOUNT_ID: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
+        run: |
+           python dashboards/create_dm_dashboard.py     
