@@ -1,7 +1,7 @@
 name: Salesforce ELF Ingestion
 
 on:
-  push:
+  pull_request:
     branches:
       - develop
 
